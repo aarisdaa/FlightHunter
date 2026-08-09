@@ -1,9 +1,27 @@
 # Python
-backend/venv/
-
-# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 
-# Environment
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables
 .env
+.env.*
+
+# Node
+node_modules/
+dist/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
