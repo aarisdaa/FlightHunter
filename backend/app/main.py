@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from sqlalchemy import text
 
-from app.database import engine
+from app.database import engine, Base
+from app.models import Flight
+
+from app.routes.flights import router as flights_router
 
 
 app = FastAPI(
@@ -10,8 +13,14 @@ app = FastAPI(
 )
 
 
+Base.metadata.create_all(bind=engine)
+
+app.include_router(flights_router)
+
+
 @app.get("/")
 def root():
+
     return {
         "message": "FlightHunter API is running!"
     }
@@ -24,11 +33,7 @@ def health_check():
 
         with engine.connect() as connection:
 
-            result = connection.execute(
-                text("SELECT 1")
-            )
-
-            result.fetchone()
+            connection.execute(text("SELECT 1"))
 
         return {
             "status": "ok",
