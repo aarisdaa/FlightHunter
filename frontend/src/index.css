@@ -1,0 +1,9 @@
+/* theme: cream / black / orange */
+:root {
+  --bg: #f6efe0; --card: #fffaf0; --tx: #151515; --mut: #6f6759; --line: #e2d7c0;
+  --accent: #f26a1b; --good: #15803d; --bad: #b91c1c;
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light; color: var(--tx); background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
